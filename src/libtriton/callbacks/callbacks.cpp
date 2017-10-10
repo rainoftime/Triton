@@ -94,6 +94,7 @@ namespace triton {
            for (auto& function: this->getConcreteMemoryValueCallbacks) {
              // FIXME Const_cast is certainly bad
              function(api, const_cast<triton::arch::MemoryAccess&>(mem));
+             this->api.getSymbolicEngine()->initLeaAst(const_cast<triton::arch::MemoryAccess&>(mem), true);
            }
           break;
         }
