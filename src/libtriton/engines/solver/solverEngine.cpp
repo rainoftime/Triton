@@ -131,6 +131,7 @@ namespace triton {
         solver.add(expr);
 
         /* Check if it is sat */
+        // TODO: why enumerating models?; should set timeout for each solver query
         while (solver.check() == z3::sat && limit >= 1) {
 
           /* Get model */
